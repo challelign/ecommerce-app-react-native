@@ -7,6 +7,8 @@ export const theme = {
     offWhite: "#f3f4f8",
     white: "#ffffff",
     black: "#000000",
+    darkGray: "#4A628A",
+    whiteGray: "#B9E5E8",
   },
   sizes: {
     xSmall: 10,

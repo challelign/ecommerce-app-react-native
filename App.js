@@ -1,12 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import WelcomeView from "./components/WelcomeView";
+import HomeScreen from "./components/HomeScreen";
 
 export default function App() {
-  return (
-    <SafeAreaView>
-      <StatusBar style="auto" />
-      <WelcomeView />
-    </SafeAreaView>
-  );
+  return <HomeScreen />;
 }
