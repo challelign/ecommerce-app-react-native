@@ -7,9 +7,39 @@ export const products = [
 ];
 
 export const images = [
-  { id: "1", path: require("../assets/images/shopping1.jpg") },
-  { id: "2", path: require("../assets/images/shopping2.jpg") },
-  { id: "3", path: require("../assets/images/shopping3.jpg") },
-  { id: "4", path: require("../assets/images/shopping4.jpg") },
-  { id: "5", path: require("../assets/images/shopping6.jpg") },
+  {
+    id: "1",
+    price: "$300",
+
+    path: require("../assets/images/shopping1.jpg"),
+    title: "Stylish Leather Jacket",
+  },
+  {
+    id: "2",
+    price: "$230",
+
+    path: require("../assets/images/shopping2.jpg"),
+    title: "Bluetooth Wireless Headphones",
+  },
+  {
+    id: "3",
+    price: "$150",
+
+    path: require("../assets/images/shopping3.jpg"),
+    title: "Smart Fitness Watch",
+  },
+  {
+    id: "4",
+    price: "$530",
+
+    path: require("../assets/images/shopping4.jpg"),
+    title: "High-Quality Running Shoes",
+  },
+  {
+    id: "5",
+    price: "$35",
+
+    path: require("../assets/images/shopping6.jpg"),
+    title: "Organic Green Tea",
+  },
 ];
