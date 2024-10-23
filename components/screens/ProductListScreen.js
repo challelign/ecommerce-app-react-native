@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard";
 import { useEffect, useState } from "react";
 import LottieView from "lottie-react-native";
 
-export default function ProductList() {
+export default function ProductListScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

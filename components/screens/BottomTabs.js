@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./HomeScreen";
 import { Ionicons } from "@expo/vector-icons";
-import { theme } from "../constants/theme";
-import ProfileScreen from "./screens/ProfileScreen";
-import CartScreen from "./screens/CartScreen";
-import SearchScreen from "./screens/SearchScreen";
+import { theme } from "../../constants/theme";
+import ProfileScreen from "./ProfileScreen";
+import CartScreen from "./CartScreen";
+import SearchScreen from "./SearchScreen";
 
 const Tabs = createBottomTabNavigator();
 // to hide the name level to the tabs
@@ -17,7 +17,7 @@ const BottomTabs = () => {
   return (
     <Tabs.Navigator screenOptions={screenOptions}>
       <Tabs.Screen
-        name="HomeScreen"
+        name="HomeScreenTabs"
         component={HomeScreen}
         options={{
           headerShown: false,

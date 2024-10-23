@@ -10,7 +10,7 @@ const HomeHeading = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>New Rivals</Text>
-        <TouchableOpacity onPress={() => nav.navigate("ProductList")}>
+        <TouchableOpacity onPress={() => nav.navigate("ProductListScreen")}>
           <Entypo name="grid" size={24} />
         </TouchableOpacity>
       </View>

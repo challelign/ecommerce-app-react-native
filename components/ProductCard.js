@@ -1,20 +1,25 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { theme } from "../constants/theme";
+import { Link, useNavigation } from "@react-navigation/native";
 
 export default function ProductCard({ item }) {
+  const nav = useNavigation();
+
   console.log("items List =>", item);
   return (
     <View style={styles.imageContainer}>
-      <Image source={item.path} style={styles.image} />
-      <View style={styles.imageTitle}>
-        <Text style={styles.titleText} numberOfLines={2}>
-          {item.title}
-        </Text>
-        <Text style={styles.priceText} numberOfLines={2}>
-          {item.price}
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => nav.navigate("ProductDetailScreen")}>
+        <Image source={item.path} style={styles.image} />
+        <View style={styles.imageTitle}>
+          <Text style={styles.titleText} numberOfLines={2}>
+            {item.title}
+          </Text>
+          <Text style={styles.priceText} numberOfLines={2}>
+            {item.price}
+          </Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }

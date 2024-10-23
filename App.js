@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./components/screens/HomeScreen";
 import ProductList from "./components/screens/ProductListScreen";
 import {
   Roboto_400Regular,
@@ -9,7 +8,9 @@ import {
 } from "@expo-google-fonts/roboto";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import BottomTabs from "./components/BottomTabs";
+import BottomTabs from "./components/screens/BottomTabs";
+import ProductDetail from "./components/screens/ProductDetailScreen";
+import ProductDetailScreen from "./components/screens/ProductDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -76,11 +77,20 @@ export default function App() {
           }}
         />
         <Stack.Screen
-          name="ProductList"
+          name="ProductListScreen"
           component={ProductList}
           options={{
             // headerShown: false,
             title: "Product List",
+          }}
+        />
+
+        <Stack.Screen
+          name="ProductDetailScreen"
+          component={ProductDetailScreen}
+          options={{
+            // headerShown: false,
+            title: "Product Detail",
           }}
         />
       </Stack.Navigator>
