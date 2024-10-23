@@ -1,30 +1,10 @@
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import React from "react";
+import { FlatList, SafeAreaView } from "react-native";
 import { images } from "../../constants/fakeData";
-import { theme } from "../../constants/theme";
+import ProductCard from "../ProductCard";
 
 export default function ProductList() {
   const renderItem = ({ item }) => {
-    return (
-      <View style={styles.imageContainer}>
-        <Image source={item.path} style={styles.image} />
-        <View style={styles.imageTitle}>
-          <Text style={styles.titleText} numberOfLines={2}>
-            {item.title}
-          </Text>
-          <Text style={styles.priceText} numberOfLines={2}>
-            {item.price}
-          </Text>
-        </View>
-      </View>
-    );
+    return <ProductCard item={item} />;
   };
 
   return (
@@ -38,32 +18,3 @@ export default function ProductList() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  imageContainer: {
-    backgroundColor: theme.colors.secondary,
-    flex: 1,
-    height: 260,
-    margin: 10,
-    borderRadius: theme.sizes.small,
-    overflow: "hidden",
-  },
-  image: {
-    width: "100%",
-    height: 180,
-    borderRadius: theme.sizes.small,
-  },
-  imageTitle: {
-    padding: theme.sizes.small,
-    flexGrow: 1,
-    justifyContent: "flex-start",
-  },
-  titleText: {
-    fontSize: theme.sizes.medium,
-    flexWrap: "wrap",
-  },
-  priceText: {
-    marginTop: 5,
-    marginBottom: 10,
-  },
-});
