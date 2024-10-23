@@ -3,10 +3,11 @@ import React from "react";
 import { fetchHomeProduct } from "../../hooks/fetchHomeProduct";
 
 const HomeProductListScreen = () => {
-  fetchHomeProduct();
+  const { isLoading, error, data } = fetchHomeProduct();
+  console.log(data);
   return (
     <View>
-      <Text>HomeProductListScreen</Text>
+      {isLoading ? <Text>Loading ..</Text> : <Text>HomeProductListScreen</Text>}
     </View>
   );
 };
