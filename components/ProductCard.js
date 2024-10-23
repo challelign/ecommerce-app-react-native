@@ -39,8 +39,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   titleText: {
-    fontSize: theme.sizes.medium,
+    fontSize: theme.sizes.medium + 4,
     flexWrap: "wrap",
+    fontFamily: "Roboto_700Bold",
   },
   priceText: {
     marginTop: 5,
