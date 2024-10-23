@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     marginTop: theme.sizes.medium,
   },
   headerTitle: {
-    fontSize: theme.sizes.xLarge - 7,
+    fontSize: theme.sizes.xLarge - 4,
+    fontFamily: "Roboto_700Bold",
   },
   header: {
     flexDirection: "row",

@@ -9,6 +9,7 @@ import {
 } from "@expo-google-fonts/roboto";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
+import BottomTabs from "./components/BottomTabs";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,9 +41,48 @@ export default function App() {
   }
   return (
     <NavigationContainer onReady={onLayoutRootView}>
-      <Stack.Navigator>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="ProductList" component={ProductList} />
+      <Stack.Navigator
+        screenOptions={{
+          tabBarStyle: {
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            left: 0,
+            elevation: 0,
+            height: 70,
+          },
+          // headerShown: true, // Set to false if you want to hide headers by default
+          // title: "Default Title", // Default title if not specified in screen options
+          // headerStyle: {
+          //   backgroundColor: "#f4511e", // Customize header background color
+          // },
+          // headerTintColor: "#fff", // Customize header text color
+          // headerTitleStyle: {
+          //   fontWeight: "bold", // Customize header title font weight
+          // },
+        }}
+      >
+        <Stack.Screen
+          name="HomeScreen"
+          component={BottomTabs}
+          options={{
+            headerShown: false,
+            title: "Home",
+            tabBarStyle: {
+              backgroundColor: "#f4511e", // Set tab bar background color
+              borderTopWidth: 1, // Optional: Add border at the top
+              borderTopColor: "#ccc", // Optional: Set border color
+            },
+          }}
+        />
+        <Stack.Screen
+          name="ProductList"
+          component={ProductList}
+          options={{
+            // headerShown: false,
+            title: "Product List",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
