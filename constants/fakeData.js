@@ -1,4 +1,4 @@
-export const products = [
+export const productItem = [
   { id: 1, title: "Stylish Leather Jacket" },
   { id: 2, title: "Bluetooth Wireless Headphones" },
   { id: 3, title: "Smart Fitness Watch" },
@@ -6,7 +6,7 @@ export const products = [
   { id: 5, title: "Organic Green Tea" },
 ];
 
-export const images = [
+export const products = [
   {
     id: "1",
     price: "$300",

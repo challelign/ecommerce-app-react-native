@@ -1,46 +1,45 @@
 import { FlatList, SafeAreaView, Text, View } from "react-native";
-import { images } from "../../constants/fakeData";
 import ProductCard from "../ProductCard";
-import { useEffect, useState } from "react";
-import LottieView from "lottie-react-native";
+import LoadingSkeleton from "../LoadingSkeleton";
+import { fetchHomeProduct } from "../../hooks/fetchHomeProduct";
 
 export default function ProductListScreen() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); //2 sec
-    return () => clearTimeout(timer);
-  }, []);
+  const { isLoading, error, data } = fetchHomeProduct();
 
   const renderItem = ({ item }) => {
     return <ProductCard item={item} />;
   };
 
-  if (loading) {
+  console.log("Error Message =>", error);
+  if (error) {
     return (
-      <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-        {/* <LottieView source={require("../assets/json/Animation-rect.json")} /> */}
-        <LottieView
-          source={require("../../assets/json/animation-loading.json")}
-          autoPlay
-          loop
-          style={{
-            width: 250,
-            height: 250,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "white",
+        }}
+      >
+        <Text style={{ color: "red", fontSize: 18 }}>Something went wrong</Text>
       </View>
     );
   }
-
+  if (isLoading) {
+    return (
+      <LoadingSkeleton
+        source={require("../../assets/json/animation-loading.json")}
+        style={{ backgroundColor: "white" }} // Custom styles can be added here
+        flex={true} // Pass true to include flex: 1
+        width={250} // Pass as a number, or as a string without quotes
+        height={250} // Pass as a number, or as a string without quotes
+      />
+    );
+  }
   return (
     <SafeAreaView>
       <FlatList
-        data={images}
+        data={data}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         numColumns={2}

@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { theme } from "../constants/theme";
-import { images } from "../constants/fakeData";
+import { products } from "../constants/fakeData";
 
 const { width } = Dimensions.get("window");
 
@@ -23,7 +23,7 @@ const HomeCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => {
-        const nextIndex = (prevIndex + 1) % images.length;
+        const nextIndex = (prevIndex + 1) % products.length;
         flatListRef.current.scrollToIndex({ index: nextIndex, animated: true });
         return nextIndex;
       });
@@ -40,7 +40,7 @@ const HomeCarousel = () => {
   const renderIndicators = () => {
     return (
       <View style={styles.indicatorContainer}>
-        {images.map((_, index) => (
+        {products.map((_, index) => (
           <TouchableOpacity
             key={index}
             style={[
@@ -58,7 +58,7 @@ const HomeCarousel = () => {
     <View style={styles.container}>
       <FlatList
         ref={flatListRef}
-        data={images}
+        data={products}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         horizontal

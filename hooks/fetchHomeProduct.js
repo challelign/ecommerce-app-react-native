@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { products } from "../constants/fakeData";
 
 export const fetchHomeProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -10,7 +11,8 @@ export const fetchHomeProduct = () => {
 
       const timer = new Promise((resolve) => {
         setTimeout(() => {
-          resolve("Product 1", "product two", "product three");
+          // resolve("Product 1", "product two", "product three");
+          resolve(products);
         }, 2000);
         return () => clearTimeout(timer);
       });
